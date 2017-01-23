@@ -1,1 +1,12 @@
-<h1>Welcome to my Awesome Web App</h1>
+<% @lessons.each do |lesson| %>
+  <div>
+    <h1><%= lesson.name %></h1><br />
+    <i><%= lesson.description %></i><br />
+    <p><%= lesson.date %></p>
+    <p><%= lesson.time %></p>
+    <p><%= lesson.location %></p>
+    <p><%= lesson.address %></p>
+  </div>
+
+  <hr />
+<% end %>
