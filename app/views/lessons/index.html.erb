@@ -6,10 +6,9 @@
   <div class="booyah-box col-xs-10 col-xs-offset-1">
     <h1><%= lesson.name %></h1><br />
     <p><i><%= lesson.description %></i></p><br />
-    <p><%= lesson.date %></p>
-    <p><%= lesson.time %></p><br />
-    <p><%= lesson.location %></p>
-    <p><%= lesson.address %></p><br />
+    <p><i class="glyphicon glyphicon-time"></i>&nbsp;<%= lesson.date %> at <%= lesson.time %></p><br />
+    <p><i class="glyphicon glyphicon-map-marker"></i>  <%= lesson.location %></p>
+    <p>&nbsp; &nbsp; <%= lesson.address %></p><br />
   </div>
 
 <% end %>
