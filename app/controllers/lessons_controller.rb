@@ -17,6 +17,9 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
+  def edit
+     @lesson = Lesson.find(params[:id])
+  end
  private
 
   def lesson_params
