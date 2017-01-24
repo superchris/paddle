@@ -9,6 +9,10 @@
     <p><i class="glyphicon glyphicon-time"></i>&nbsp;<%= lesson.date %> at <%= lesson.time %></p><br />
     <p><i class="glyphicon glyphicon-map-marker"></i>  <%= lesson.location %></p>
     <p>&nbsp; &nbsp; <%= lesson.address %></p><br />
+
+    <% if lesson.user.present? %>
+      <small><%= lesson.user.email %></small>
+    <% end %>
   </div>
 
 <% end %>

@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @lessons = Lesson.paginate(page: params[:page], per_page: 5)
   end
@@ -8,7 +9,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-   Lesson.create(lesson_params)
+   current_user.lessons.create(lesson_params)
    redirect_to root_path
   end
 
