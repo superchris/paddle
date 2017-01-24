@@ -19,6 +19,7 @@ gem 'sprockets', '2.11.0'
 gem 'sass-rails'
 gem 'will_paginate', '~> 3.1.1'
 gem 'bootstrap-will_paginate'
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
