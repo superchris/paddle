@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127200032) do
+ActiveRecord::Schema.define(version: 20170127214753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(version: 20170127200032) do
     t.string   "skill_level"
     t.text     "message"
     t.integer  "user_id"
-    t.integer  "place_id"
+    t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["place_id"], name: "index_comments_on_place_id", using: :btree
-  add_index "comments", ["user_id", "place_id"], name: "index_comments_on_user_id_and_place_id", using: :btree
+  add_index "comments", ["lesson_id"], name: "index_comments_on_lesson_id", using: :btree
+  add_index "comments", ["user_id", "lesson_id"], name: "index_comments_on_user_id_and_lesson_id", using: :btree
 
   create_table "lessons", force: true do |t|
     t.string   "name"

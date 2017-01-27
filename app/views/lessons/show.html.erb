@@ -14,11 +14,11 @@
 </div>
 
 <div class="clear"></div>
-<%= simple_form_for @comment, url: '#' do |f| %>
+<%= simple_form_for @comment, url: lesson_comments_path(@lesson) do |f| %>
   <%= f.input :full_name %>
   <%= f.input :phone_number %>
   <%= f.input :email %>
   <%= f.input :skill_level %>
   <%= f.input :message %>
-  <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+  <%= f.submit "Sign Up", class: 'btn btn-primary' %>
 <% end %>
