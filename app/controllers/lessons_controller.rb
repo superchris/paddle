@@ -9,8 +9,12 @@ class LessonsController < ApplicationController
   end
 
   def create
-   current_user.lessons.create(lesson_params)
-   redirect_to root_path
+    @lesson = current_user.lessons.create(lesson_params)
+    if @lesson.valid?
+     redirect_to root_path
+    else
+     render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -32,7 +36,11 @@ class LessonsController < ApplicationController
     end
 
     @lesson.update_attributes(lesson_params)
-    redirect_to root_path
+    if @lesson.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
