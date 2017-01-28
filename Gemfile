@@ -21,6 +21,7 @@ gem 'will_paginate', '~> 3.1.1'
 gem 'bootstrap-will_paginate'
 gem 'simple_form'
 gem 'devise', '>= 3.2.4'
+gem "figaro", ">= 1.0.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

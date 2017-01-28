@@ -2,11 +2,11 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :place
 
-  validates :full_name, presence: true
-  validates :phone_number, presence: true, length: { maximum: 13, minimum: 10 }
-  validates :email, presence: true, length: { maximum: 140, minimum: 3 }
-  validates :skill_level, presence: true
-  validates :message, presence: true, length: { maximum: 300, minimum: 3 }
+  # validates :full_name, presence: true
+  # validates :phone_number, presence: true, length: { maximum: 13, minimum: 10 }
+  # validates :email, presence: true, length: { maximum: 140, minimum: 3 }
+  # validates :skill_level, presence: true
+  # validates :message, presence: true, length: { maximum: 300, minimum: 3 }
 
   SKILL_LEVEL = {
     'LEVEL 1- Beginner' => '1_level',
