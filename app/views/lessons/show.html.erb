@@ -15,10 +15,27 @@
 
 <div class="clear"></div>
 <%= simple_form_for @comment, url: lesson_comments_path(@lesson) do |f| %>
-  <%= f.input :full_name %>
-  <%= f.input :phone_number %>
-  <%= f.input :email %>
-  <%= f.input :skill_level %>
+  <%= f.input :full_name, placeholder: 'John Doe' %>
+  <%= f.input :phone_number, placeholder: '(305)123-4567' %>
+  <%= f.input :email, placeholder: 'user@domain.com' %>
+  <%= f.input :skill_level, as: :select, collection: Comment::SKILL_LEVEL %>
   <%= f.input :message %>
   <%= f.submit "Sign Up", class: 'btn btn-primary' %>
+<% end %>
+
+<!-- remove after seeing that comments work. put this code on dashboard -->
+<h1>Comments</h1>
+
+<% @lesson.comments.each do |comment| %>
+  <div>
+    <blockquote>
+      <%= comment.full_name %>
+      <%= comment.phone_number %>
+      <%= comment.email %>
+      <% if comment.humanized_skill.present? %>
+        <b><%= comment.humanized_skill %></b> -
+      <% end %>
+      <%= comment.message %>
+    </blockquote>
+  </div>
 <% end %>
