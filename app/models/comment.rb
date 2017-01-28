@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
-  belongs_to :place
+  belongs_to :lesson
+  after_create :send_comment_email
 
   # validates :full_name, presence: true
   # validates :phone_number, presence: true, length: { maximum: 13, minimum: 10 }
@@ -18,5 +19,9 @@ class Comment < ActiveRecord::Base
 
   def humanized_skill
       SKILL_LEVEL.invert[self.skill_level]
-    end
+  end
+
+  def send_comment_email
+      NotificationMailer.comment_added(self).deliver
+  end
 end
