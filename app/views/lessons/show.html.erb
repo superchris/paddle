@@ -14,14 +14,36 @@
 </div>
 
 <div class="clear"></div>
-<%= simple_form_for @comment, url: lesson_comments_path(@lesson) do |f| %>
-  <%= f.input :full_name, placeholder: 'John Doe' %>
-  <%= f.input :phone_number, placeholder: '(305)123-4567' %>
-  <%= f.input :email, placeholder: 'user@domain.com' %>
-  <%= f.input :skill_level, as: :select, collection: Comment::SKILL_LEVEL %>
-  <%= f.input :message %>
-  <%= f.submit "Sign Up", class: 'btn btn-primary' %>
-<% end %>
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Sign up!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign up for this lesson</h4>
+      </div>
+      <%= simple_form_for @comment, url: lesson_comments_path(@lesson) do |f| %>
+      <div class="modal-body">
+          <%= f.input :full_name, placeholder: 'John Doe' %>
+          <%= f.input :phone_number, placeholder: '(305)123-4567' %>
+          <%= f.input :email, placeholder: 'user@domain.com' %>
+          <%= f.input :skill_level, as: :select, collection: Comment::SKILL_LEVEL %>
+          <%= f.input :message %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Sign Up", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <!-- remove after seeing that comments work. put this code on dashboard -->
 <h1>Comments</h1>
