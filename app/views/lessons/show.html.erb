@@ -16,9 +16,13 @@
 <div class="clear"></div>
 
 <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Sign up!
-</button>
+<div class="col-xs-10 col-xs-offset-1">
+  <p>Invite Friends! <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Flosantiville-paddle.herokuapp.com%2F&layout=button&mobile_iframe=true&width=61&height=20&appId"
+    width="61" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></p>
+  <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+    Sign up!
+  </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -49,15 +53,13 @@
 <h1>Comments</h1>
 
 <% @lesson.comments.each do |comment| %>
-  <div>
-    <blockquote>
-      <%= comment.full_name %>
-      <%= comment.phone_number %>
-      <%= comment.email %>
+  <div class="col-xs-12 col-sm-6">
+      <p>Name: <%= comment.full_name %></p>
+      <p>Phone Number: <%= comment.phone_number %></p>
+      <p>Email-address: <%= comment.email %></p>
       <% if comment.humanized_skill.present? %>
-        <b><%= comment.humanized_skill %></b> -
+        <p>Skill Level: <b><%= comment.humanized_skill %></b></p>
       <% end %>
-      <%= comment.message %>
-    </blockquote>
+      <p>Comments/Questions: <%= comment.message %></p><br /><br />
   </div>
 <% end %>
