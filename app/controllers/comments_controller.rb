@@ -6,6 +6,13 @@ class CommentsController < ApplicationController
     redirect_to lesson_path(@lesson)
   end
 
+  def destroy
+   @lesson = Lesson.find(params[:lesson_id])
+   @comment = @lesson.comments.find(params[:id])
+   @comment.destroy
+   redirect_to user_path(current_user), :notice => "Lesson Deleted"
+ end
+
   private
 
    def comment_params
