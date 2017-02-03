@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :comments, :only => [:create, :destroy]
   end
   resources :users, only: :show
+  resources :instructors, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
