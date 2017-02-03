@@ -31,6 +31,7 @@
 
     <tbody>
       <% @user.comments.each do |comment| %>
+        <% if comment.lesson.present? %>
           <tr>
             <td><%= link_to comment.lesson.name, lesson_path(comment.lesson) %></td>
             <td> <%= comment.full_name %></td>
@@ -43,6 +44,7 @@
             <td><%= link_to 'Destroy', lesson_comment_path(comment.lesson, comment),
             method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger btn-xs' %></td>
         <% end %>
+      <% end %>
     </tbody>
   </table>
 </div>
