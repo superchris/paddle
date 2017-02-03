@@ -48,18 +48,3 @@
     </div>
   </div>
 </div>
-
-<!-- remove after seeing that comments work. put this code on dashboard -->
-<h1>Comments</h1>
-
-<% @lesson.comments.each do |comment| %>
-  <div class="col-xs-12 col-sm-6">
-      <p>Name: <%= comment.full_name %></p>
-      <p>Phone Number: <%= comment.phone_number %></p>
-      <p>Email-address: <%= comment.email %></p>
-      <% if comment.humanized_skill.present? %>
-        <p>Skill Level: <b><%= comment.humanized_skill %></b></p>
-      <% end %>
-      <p>Comments/Questions: <%= comment.message %></p><br /><br />
-  </div>
-<% end %>
