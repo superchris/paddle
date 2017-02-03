@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @lessons = Lesson.paginate(page: params[:page], per_page: 5)
+    @lessons = Lesson.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def new
