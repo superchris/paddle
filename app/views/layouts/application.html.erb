@@ -42,12 +42,14 @@
         <ul class="nav navbar-nav">
           <!-- <li class="active"><a href="#">Link</a></li> -->
           <li><%= link_to 'Pro Staff', instructors_path, class: 'nav-link' %></li>
-          <li>
-            <%= link_to new_lesson_path do %>
-              <i class="glyphicon glyphicon-plus-sign"></i>
-              New Lesson
-            <% end %>
-          </li>
+          <% if current_user && current_user.admin? %>
+            <li>
+              <%= link_to new_lesson_path do %>
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                New Lesson
+              <% end %>
+            </li>
+          <% end %>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
