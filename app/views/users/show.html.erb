@@ -12,7 +12,7 @@
   <h4><%= @user.comments.count %> Total Lessons</h4>
 </div>
 <br />
-<h1 class="text-center">My Clients and Lessons</h1>
+<h1 class="text-center">My Lessons</h1>
 
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 <table class="table table-hover">
@@ -50,6 +50,7 @@
 </div>
 </div>
 <div class="clear"></div>
+<!-- If user has lessons do code below. only instructors can create lessons. -->
 <h2 class="text-center">My Lessons</h2>
 <% @user.lessons.each do |lesson| %>
   <div class="booyah-box col-xs-10 col-xs-offset-1">
