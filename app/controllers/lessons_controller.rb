@@ -12,9 +12,9 @@ class LessonsController < ApplicationController
   def create
     @lesson = current_user.lessons.create(lesson_params)
     if @lesson.valid?
-     redirect_to root_path
+      redirect_to root_path
     else
-     render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -24,11 +24,11 @@ class LessonsController < ApplicationController
   end
 
   def edit
-     @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
 
-     if @lesson.user != current_user
-       return render text: 'Not Allowed', status: :forbidden
-     end
+    if @lesson.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end
   end
 
   def update
@@ -55,10 +55,10 @@ class LessonsController < ApplicationController
     redirect_to root_path
   end
 
- private
+  private
 
   def lesson_params
-   params.require(:lesson).permit(:name, :description, :date, :time, :location, :address)
+    params.require(:lesson).permit(:name, :description, :date, :time, :location, :address, :max_students)
   end
 
   # def require_admin

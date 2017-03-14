@@ -19,9 +19,13 @@
 <div class="col-xs-10 col-xs-offset-1">
   <p>Invite Friends! <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Flosantiville-paddle.herokuapp.com%2F&layout=button&mobile_iframe=true&width=61&height=20&appId"
     width="61" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></p>
-  <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
-    Sign up!
-  </button>
+    <% if @lesson.lesson_full? %>
+      <i class="btn btn-primary btn-lg pull-right"> Lesson is full</i>
+    <% else %>
+      <button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+        Sign up!
+      </button>
+    <% end %>
 </div>
 
 <!-- Modal -->
